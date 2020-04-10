@@ -16,8 +16,10 @@ This is the list of my partitions:
 
 - ext2 partition (100 mb) <- will be /boot
 - swap partition (1 gb)   <- will be swap file
-- ext4 partition (6.9 gb) <- root partition
+- ext4 partition (16.9 gb) <- root partition
 - ext4 partition (2 gb)   <- host os partition
+
+The total is 25gb
 
 ## Settings things up on the host
 
@@ -31,7 +33,7 @@ http://www.linuxfromscratch.org/lfs/view/stable/chapter02/hostreqs.html
 ```
 su
 apt update && apt upgrade
-apt install binutils bison bzip2 coreutils diffutils findutils gawk gcc grep m4 make patch perl python sed tar texinfo
+apt install binutils bison bzip2 coreutils diffutils findutils gawk gcc grep m4 make patch perl python sed tar texinfo g++ libncurses5-dev
 ```
 
 Many of these packages are already installed on debian, but some are missing.
@@ -145,12 +147,23 @@ In the code below, we set right for access folders
 cat > ~/.bashrc << "EOF"
 set +h
 umask 022
-LFS=/mnt/lfs
+boot=/mnt/boot
+root=/mnt/root
+LFS=$root
 LC_ALL=POSIX
+alias ..='cd ../'
+alias ex='tar -xvf'
 LFS_TGT=$(uname -m)-lfs-linux-gnu
 PATH=/tools/bin:/bin:/usr/bin
-export LFS LC_ALL LFS_TGT PATH
+export LFS boot root LC_ALL LFS_TGT PATH
 EOF
+```
+
+We export MAKEFLAGS in order to multithread compilation, we also add it to .bashrc
+
+```
+export MAKEFLAGS='-j 2'
+echo "export MAKEFLAGS='-2 '" >> ~/.bashrc
 ```
 
 Finally, we reload bash_profile
@@ -159,8 +172,145 @@ Finally, we reload bash_profile
 source ~/.bash_profile
 ```
 
-We export MAKEFLAGS in order to multithread compilation
+### Building the tools
+
+We go into the sources folder
 
 ```
-export MAKEFLAGS='-j 2'
+cd $root/sources
 ```
+
+#### Binutils - Pass 1
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/binutils-pass1.html
+
+#### Gcc
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gcc-pass1.html
+
+#### Linux Api
+
+```
+make mrproper
+make menuconfig
+```
+
+A menu should appear. Go into:
+General setup -> Local version - append to kernel release
+You can now type the name of your kernel.
+I chose "Linux kernel 5.5.3 lubenard".
+Save, then exit.
+
+```
+make headers
+cp -rv usr/include/* /tools/include
+```
+
+#### Glibc
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/glibc.html
+
+#### Gcc - libstdc++
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gcc-libstdc++.html
+
+#### Binutils - Pass 2
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/binutils-pass2.html
+
+#### Gcc - Pass 2
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gcc-pass2.html
+
+#### Tcl
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/tcl.html
+
+#### Expect
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/expect.html
+
+
+#### Dejagnu
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/dejagnu.html
+
+#### M4
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/m4.html
+
+#### Ncurses
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/ncurses.html
+
+#### Bash
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/bash.html
+
+#### Bison
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/bison.html
+
+#### Bzip2
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/bzip2.html
+
+#### Coreutils
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/coreutils.html
+
+#### Diffutils
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/diffutils.html
+
+#### File
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/file.html
+
+#### findutils
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/findutils.html
+
+#### Gawk
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gawk.html
+
+#### Grep
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/grep.html
+
+#### Gzip
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gzip.html
+
+#### Make
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/make.html
+
+#### Patch
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/patch.html
+
+#### Perl
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/perl.html
+
+#### Python
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/Python.html
+
+#### Sed
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/sed.html
+
+#### Tar
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/tar.html
+
+#### Texinfo
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/texinfo.html
+
+#### Xz
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter05/xz.html
