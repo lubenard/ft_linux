@@ -372,6 +372,41 @@ chroot "$LFS" /tools/bin/env -i \
     /tools/bin/bash --login +h
 ```
 
+### Let's simplify that
+
+If you are planning to do this LFS in multiple times,
+we can create a small script that we will launch each time to simplify
+
+```
+nano startup.sh
+```
+
+Then enter:
+
+```
+#!/bin/bash
+su
+mount /dev/sda6 /mnt/boot
+mount /dev/sda7 /mnt/root
+mount -v --bind /dev $LFS/dev
+mount -vt devpts devpts $LFS/dev/pts -o gid=5,mode=620
+mount -vt proc proc $LFS/proc
+mount -vt sysfs sysfs $LFS/sys
+mount -vt tmpfs tmpfs $LFS/run
+```
+
+Make it executable:
+
+```
+chmod +x startup.sh
+```
+
+This way, when you will relaunch your VM, juste type:
+
+```
+./startup.sh
+```
+
 We make basic Linux system folders at root of LFS partition
 
 ```
@@ -458,9 +493,146 @@ EOF
 exec /tools/bin/bash --login +h
 ```
 
+Initialise log files:
+
 ```
 touch /var/log/{btmp,lastlog,faillog,wtmp}
 chgrp -v utmp /var/log/lastlog
 chmod -v 664  /var/log/lastlog
 chmod -v 600  /var/log/btmp
 ```
+
+### Install packages
+
+#### Linux API Headers
+
+```
+make mrproper
+make menuconfig
+```
+
+A menu should appear. Go into:
+General setup -> Local version - append to kernel release
+You can now type the name of your kernel.
+I chose "Linux kernel 5.5.3 lubenard".
+Save, then exit.
+
+```
+make headers
+cp -rv usr/include/* /tools/include
+```
+
+#### Man pages
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/man-pages.html
+
+#### Glibc
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/glibc.html
+
+#### Adjusting the toolchain
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/adjusting.html
+
+#### Zlib
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/zlib.html
+
+#### Bzip2
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/bzip2.html
+
+#### XZ
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/xz.html
+
+#### File
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/file.html
+
+#### Readline 
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/readline.html
+
+#### M4
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/m4.html
+
+#### Bc
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/bc.html
+
+#### Binutils
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/binutils.html
+
+#### Gmp
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gmp.html
+
+#### Mpfr
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/mpfr.html
+
+#### Mpc
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/mpc.html
+
+#### Attr
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/attr.html
+
+#### Acl
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/acl.html
+
+#### Shadow
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/shadow.html
+
+#### Gcc
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gcc.html
+
+If during this test:
+
+```
+echo 'int main(){}' > dummy.c
+cc dummy.c -v -Wl,--verbose &> dummy.log
+readelf -l a.out | grep ': /lib'
+```
+
+your output is different than:
+
+```
+[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+```
+
+launch 
+
+```
+gcc -dumpspecs | sed -e 's@/tools@@g' > `dirname $(gcc --print-libgcc-file-name)`/specs
+```
+
+and redo the test, it should now works
+
+#### Pkg-config
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/pkg-config.html
+
+#### Ncurses
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/ncurses.html
+
+#### Libcap
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/libcap.html
+
+#### Sed
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/sed.html
+
+#### Psmisc
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/psmisc.html
+
