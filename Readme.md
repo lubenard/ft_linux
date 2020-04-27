@@ -723,3 +723,23 @@ http://www.linuxfromscratch.org/lfs/view/stable/chapter06/Python.html
 #### Ninja
 
 http://www.linuxfromscratch.org/lfs/view/stable/chapter06/ninja.html
+
+#### Meson
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/meson.html
+
+#### Coreutils
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/coreutils.html
+
+#### Check
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/check.html
+
+#### Diffutils
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/diffutils.html
+
+#### Gawk
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gawk.html
