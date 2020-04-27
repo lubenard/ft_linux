@@ -636,3 +636,90 @@ http://www.linuxfromscratch.org/lfs/view/stable/chapter06/sed.html
 
 http://www.linuxfromscratch.org/lfs/view/stable/chapter06/psmisc.html
 
+#### Iana-etc
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/iana-etc.html
+
+#### Bison
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/bison.html
+
+#### Flex
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/flex.html
+
+#### Grep
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/grep.html
+
+#### Bash
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/bash.html
+
+#### Libtool
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/libtool.html
+
+#### Gdbm
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gdbm.html
+
+#### Gperf
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gperf.html
+
+#### Expat
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/expat.html
+
+#### Inetutils
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/inetutils.html
+
+#### Perl
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/perl.html
+
+#### Xml-parser
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/xml-parser.html
+
+#### Intltool
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/intltool.html
+
+#### Autoconf
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/autoconf.html
+
+#### Automake
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/automake.html
+
+#### Kmod
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/kmod.html
+
+#### Gettext
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gettext.html
+
+#### Libelf
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/libelf.html
+
+#### Libffi
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/libffi.html
+
+#### OpenSSL
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/openssl.html
+
+#### Python
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/Python.html
+
+#### Ninja
+
+http://www.linuxfromscratch.org/lfs/view/stable/chapter06/ninja.html
