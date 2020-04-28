@@ -180,13 +180,11 @@ We go into the sources folder
 cd $root/sources
 ```
 
-#### Binutils - Pass 1
+#### Binutils - Pass 1 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/binutils-pass1.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/binutils-pass1.html
 
-#### Gcc
+#### Gcc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gcc-pass1.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gcc-pass1.html
 
 #### Linux Api
 
@@ -206,115 +204,59 @@ make headers
 cp -rv usr/include/* /tools/include
 ```
 
-#### Glibc
+#### Glibc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/glibc.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/glibc.html
+#### Gcc - libstdc++ [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gcc-libstdc++.html)
 
-#### Gcc - libstdc++
+#### Binutils - Pass 2 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/binutils-pass2.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gcc-libstdc++.html
+#### Gcc - Pass 2 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gcc-pass2.html)
 
-#### Binutils - Pass 2
+#### Tcl [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/tcl.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/binutils-pass2.html
+#### Expect [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/expect.html)
 
-#### Gcc - Pass 2
+#### Dejagnu [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/dejagnu.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gcc-pass2.html
+#### M4 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/m4.html)
 
-#### Tcl
+#### Ncurses [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/ncurses.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/tcl.html
+#### Bash [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/bash.html)
 
-#### Expect
+#### Bison [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/bison.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/expect.html
+#### Bzip2 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/bzip2.html)
 
+#### Coreutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/coreutils.html)
 
-#### Dejagnu
+#### Diffutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/diffutils.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/dejagnu.html
+#### File [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/file.html)
 
-#### M4
+#### findutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/findutils.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/m4.html
+#### Gawk [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gawk.html)
 
-#### Ncurses
+#### Grep [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/grep.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/ncurses.html
+#### Gzip [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gzip.html)
 
-#### Bash
+#### Make [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/make.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/bash.html
+#### Patch [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/patch.html)
 
-#### Bison
+#### Perl [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/perl.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/bison.html
+#### Python [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/Python.html)
 
-#### Bzip2
+#### Sed [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/sed.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/bzip2.html
+#### Tar [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/tar.html)
 
-#### Coreutils
+#### Texinfo [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/texinfo.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/coreutils.html
-
-#### Diffutils
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/diffutils.html
-
-#### File
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/file.html
-
-#### findutils
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/findutils.html
-
-#### Gawk
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gawk.html
-
-#### Grep
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/grep.html
-
-#### Gzip
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gzip.html
-
-#### Make
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/make.html
-
-#### Patch
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/patch.html
-
-#### Perl
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/perl.html
-
-#### Python
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/Python.html
-
-#### Sed
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/sed.html
-
-#### Tar
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/tar.html
-
-#### Texinfo
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/texinfo.html
-
-#### Xz
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter05/xz.html
-
+#### Xz [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/xz.html)
 
 ### Changing right on tools folder
 
@@ -522,77 +464,41 @@ make headers
 cp -rv usr/include/* /tools/include
 ```
 
-#### Man pages
+#### Man pages [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/man-pages.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/man-pages.html
+#### Glibc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/glibc.html)
 
-#### Glibc
+#### Adjusting the toolchain [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/adjusting.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/glibc.html
+#### Zlib [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/zlib.html)
 
-#### Adjusting the toolchain
+#### Bzip2 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/bzip2.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/adjusting.html
+#### XZ [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/xz.html)
 
-#### Zlib
+#### File [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/file.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/zlib.html
+#### Readline [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/readline.html)
 
-#### Bzip2
+#### M4 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/m4.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/bzip2.html
+#### Bc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/bc.html)
 
-#### XZ
+#### Binutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/binutils.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/xz.html
+#### Gmp [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gmp.html)
 
-#### File
+#### Mpfr [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/mpfr.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/file.html
+#### Mpc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/mpc.html)
 
-#### Readline 
+#### Attr [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/attr.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/readline.html
+#### Acl [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/acl.html)
 
-#### M4
+#### Shadow [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/shadow.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/m4.html
-
-#### Bc
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/bc.html
-
-#### Binutils
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/binutils.html
-
-#### Gmp
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gmp.html
-
-#### Mpfr
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/mpfr.html
-
-#### Mpc
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/mpc.html
-
-#### Attr
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/attr.html
-
-#### Acl
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/acl.html
-
-#### Shadow
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/shadow.html
-
-#### Gcc
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gcc.html
+#### Gcc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gcc.html)
 
 If during this test:
 
@@ -616,130 +522,66 @@ gcc -dumpspecs | sed -e 's@/tools@@g' > `dirname $(gcc --print-libgcc-file-name)
 
 and redo the test, it should now works
 
-#### Pkg-config
+#### Pkg-config [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/pkg-config.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/pkg-config.html
+#### Ncurses [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/ncurses.html)
 
-#### Ncurses
+#### Libcap [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/libcap.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/ncurses.html
+#### Sed [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/sed.html)
 
-#### Libcap
+#### Psmisc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/psmisc.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/libcap.html
+#### Iana-etc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/iana-etc.html)
 
-#### Sed
+#### Bison [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/bison.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/sed.html
+#### Flex [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/flex.html)
 
-#### Psmisc
+#### Grep [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/grep.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/psmisc.html
+#### Bash [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/bash.html)
 
-#### Iana-etc
+#### Libtool [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/libtool.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/iana-etc.html
+#### Gdbm [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gdbm.html)
 
-#### Bison
+#### Gperf [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gperf.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/bison.html
+#### Expat [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/expat.html)
 
-#### Flex
+#### Inetutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/inetutils.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/flex.html
+#### Perl [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/perl.html)
 
-#### Grep
+#### Xml-parser [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/xml-parser.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/grep.html
+#### Intltool [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/intltool.html)
 
-#### Bash
+#### Autoconf [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/autoconf.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/bash.html
+#### Automake [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/automake.html)
 
-#### Libtool
+#### Kmod [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/kmod.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/libtool.html
+#### Gettext [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gettext.html)
 
-#### Gdbm
+#### Libelf [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/libelf.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gdbm.html
+#### Libffi [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/libffi.html)
 
-#### Gperf
+#### OpenSSL [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/openssl.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gperf.html
+#### Python [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/Python.html)
 
-#### Expat
+#### Ninja [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/ninja.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/expat.html
+#### Meson [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/meson.html)
 
-#### Inetutils
+#### Coreutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/coreutils.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/inetutils.html
+#### Check [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/check.html)
 
-#### Perl
+#### Diffutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/diffutils.html)
 
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/perl.html
-
-#### Xml-parser
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/xml-parser.html
-
-#### Intltool
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/intltool.html
-
-#### Autoconf
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/autoconf.html
-
-#### Automake
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/automake.html
-
-#### Kmod
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/kmod.html
-
-#### Gettext
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gettext.html
-
-#### Libelf
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/libelf.html
-
-#### Libffi
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/libffi.html
-
-#### OpenSSL
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/openssl.html
-
-#### Python
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/Python.html
-
-#### Ninja
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/ninja.html
-
-#### Meson
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/meson.html
-
-#### Coreutils
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/coreutils.html
-
-#### Check
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/check.html
-
-#### Diffutils
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/diffutils.html
-
-#### Gawk
-
-http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gawk.html
+#### Gawk [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gawk.html)
