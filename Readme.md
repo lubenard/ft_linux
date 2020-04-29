@@ -182,27 +182,9 @@ cd $root/sources
 
 #### Binutils - Pass 1 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/binutils-pass1.html)
 
-
 #### Gcc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gcc-pass1.html)
 
-
-#### Linux Api
-
-```
-make mrproper
-make menuconfig
-```
-
-A menu should appear. Go into:
-General setup -> Local version - append to kernel release
-You can now type the name of your kernel.
-I chose "Linux kernel 5.5.3 lubenard".
-Save, then exit.
-
-```
-make headers
-cp -rv usr/include/* /tools/include
-```
+#### Linux Api Headers [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/linux-headers.html)
 
 #### Glibc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/glibc.html)
 
@@ -446,23 +428,7 @@ chmod -v 600  /var/log/btmp
 
 ### Install packages
 
-#### Linux API Headers
-
-```
-make mrproper
-make menuconfig
-```
-
-A menu should appear. Go into:
-General setup -> Local version - append to kernel release
-You can now type the name of your kernel.
-I chose "Linux kernel 5.5.3 lubenard".
-Save, then exit.
-
-```
-make headers
-cp -rv usr/include/* /tools/include
-```
+#### Linux API Headers [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/linux-headers.html)
 
 #### Man pages [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/man-pages.html)
 
@@ -585,3 +551,319 @@ and redo the test, it should now works
 #### Diffutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/diffutils.html)
 
 #### Gawk [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gawk.html)
+
+#### Findutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/findutils.html)
+
+#### Groff [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/groff.html)
+
+#### Grub [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/grub.html)
+
+#### Less [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/less.html)
+
+#### Gzip [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gzip.html)
+
+#### Zstd [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/zstd.html)
+
+#### Iproute2 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/iproute2.html)
+
+#### Kbd [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/kbd.html)
+
+#### Libpipeline [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/libpipeline.html)
+
+#### Make [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/make.html)
+
+#### Patch [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/patch.html)
+
+#### Man-db [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/man-db.html)
+
+#### Tar [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/tar.html)
+
+#### Texinfo [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/texinfo.html)
+
+#### Vim [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/vim.html)
+
+#### Procps-ng [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/procps-ng.html)
+
+#### Util-linux [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/util-linux.html)
+
+#### E2fsprogs [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/e2fsprogs.html)
+
+#### Sysklogd [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/sysklogd.html)
+
+#### Sysvinit [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/sysvinit.html)
+
+#### Eudev [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/eudev.html)
+
+## Everything is ready ? No sir !
+
+### Cleaning things up
+
+We remove files that could remain for tests:
+
+```
+rm -rf /tmp/*
+```
+
+Logout and renter the chroot using the bash we just installed
+
+```
+logout
+
+chroot "$LFS" /usr/bin/env -i          \
+    HOME=/root TERM="$TERM"            \
+    PS1='(lfs chroot) \u:\w\$ '        \
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin \
+    /bin/bash --login
+```
+
+We can now remove last bits of files that could remain during compilation, such as library:
+
+```
+rm -f /usr/lib/lib{bfd,opcodes}.a
+rm -f /usr/lib/libbz2.a
+rm -f /usr/lib/lib{com_err,e2p,ext2fs,ss}.a
+rm -f /usr/lib/libltdl.a
+rm -f /usr/lib/libfl.a
+rm -f /usr/lib/libz.a
+find /usr/lib /usr/libexec -name \*.la -delete
+```
+
+### Configuration for boot 
+
+Install Lfs-bootscripts followings [those](http://www.linuxfromscratch.org/lfs/view/stable/chapter07/bootscripts.html) steps (the package should be in source directory)
+
+We can now create custom udev rules:
+
+```
+bash /lib/udev/init-net-rules.sh
+```
+
+and create cd-rom links:
+
+```
+udevadm test /sys/block/hdd
+sed -i -e 's/"write_cd_rules"/"write_cd_rules mode"/' \
+    /etc/udev/rules.d/83-cdrom-symlinks.rules
+udevadm info -a -p /sys/class/video4linux/video0
+
+cat > /etc/udev/rules.d/83-duplicate_devs.rules << "EOF"
+># Persistent symlinks for webcam and tuner
+>KERNEL=="video*", ATTRS{idProduct}=="1910", ATTRS{idVendor}=="0d81", \
+    SYMLINK+="webcam"
+>KERNEL=="video*", ATTRS{device}=="0x036f", ATTRS{vendor}=="0x109e", \
+    SYMLINK+="tvtuner"
+>
+>EOF
+```
+
+### Network Configuration
+
+We create a interface eth0 for the network
+
+```
+cd /etc/sysconfig/
+cat > ifconfig.eth0 << "EOF"
+>ONBOOT=yes
+>IFACE=eth0
+>SERVICE=ipv4-static
+>IP=192.168.1.2
+>GATEWAY=192.168.1.1
+>PREFIX=24
+>BROADCAST=192.168.1.255
+>EOF
+```
+
+and the resolv.conf file:
+
+```
+cat > /etc/resolv.conf << "EOF"
+># Begin /etc/resolv.conf
+>
+>domain <Your Domain Name>
+>nameserver 8.8.8.
+>nameserver 1.1.1.1
+>
+># End /etc/resolv.conf
+>EOF
+```
+
+Customizing hostname and hosts file
+
+```
+echo "lfs-lubenard" > /etc/hostname
+cat > /etc/hosts << "EOF"
+>127.0.0.1 localhost lfs-lubenard 
+>EOF
+```
+
+### Configuring Sysvinit
+
+```
+cat > /etc/inittab << "EOF"
+>id:3:initdefault:
+>
+>si::sysinit:/etc/rc.d/init.d/rc S
+>
+>l0:0:wait:/etc/rc.d/init.d/rc 0
+>l1:S1:wait:/etc/rc.d/init.d/rc 1
+>l2:2:wait:/etc/rc.d/init.d/rc 2
+>l3:3:wait:/etc/rc.d/init.d/rc 3
+>l4:4:wait:/etc/rc.d/init.d/rc 4
+>l5:5:wait:/etc/rc.d/init.d/rc 5
+>l6:6:wait:/etc/rc.d/init.d/rc 6
+>
+>ca:12345:ctrlaltdel:/sbin/shutdown -t1 -a -r now
+>
+>su:S016:once:/sbin/sulogin
+>
+>1:2345:respawn:/sbin/agetty --noclear tty1 9600
+>2:2345:respawn:/sbin/agetty tty2 9600
+>3:2345:respawn:/sbin/agetty tty3 9600
+>4:2345:respawn:/sbin/agetty tty4 9600
+>5:2345:respawn:/sbin/agetty tty5 9600
+>6:2345:respawn:/sbin/agetty tty6 9600
+>
+>EOF
+```
+
+### Configuring the system clock
+
+```
+cat > /etc/sysconfig/clock << "EOF"
+>UTC=1
+>
+># Set this to any options you might need to give to hwclock,
+># such as machine hardware clock type for Alphas.
+>CLOCKPARAMS=
+>EOF
+```
+
+### Configuring keyboard
+
+This code below will configure the keyboard layout: 
+
+The layout of my keyboard is french, so the KEYMAP variable is fr. 
+
+Replace it with what corresponds to your keyboard layout.
+
+```
+cat > /etc/sysconfig/console << "EOF"
+# Begin /etc/sysconfig/console
+
+UNICODE="1"
+KEYMAP="fr-latin1"
+KEYMAP_CORRECTIONS="euro2"
+LEGACY_CHARSET="iso-8859-15"
+FONT="LatArCyrHeb-16 -m 8859-15"
+
+# End /etc/sysconfig/console
+EOF
+```
+
+### Shell startup script
+
+In my case, i chose french language
+
+```
+LC_ALL=fr_FR locale charmap
+LC_ALL=fr_FR locale language
+LC_ALL=fr_FR locale charmap
+LC_ALL=fr_FR locale int_curr_symbol
+LC_ALL=fr_FR locale int_prefix
+
+cat > /etc/profile << "EOF"
+# Begin /etc/profile
+
+export LANG=fr_FR.UTF8@euro
+
+# End /etc/profile
+EOF
+```
+
+### Inputrc and shells file
+
+Inputrc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter07/inputrc.html)
+
+Shells [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter07/etcshells.html)
+
+## It's alive !
+
+### Create the /etc/fstab file
+
+```
+cat > /etc/fstab << "EOF"
+># file system  mount-point  type     options             dump  fsck
+>#                                                              order
+>
+>/dev/sda7     /            ext4    defaults            1     1
+>/dev/sda5     swap         swap     pri=1               0     0
+>proc           /proc        proc     nosuid,noexec,nodev 0     0
+>sysfs          /sys         sysfs    nosuid,noexec,nodev 0     0
+>devpts         /dev/pts     devpts   gid=5,mode=620      0     0
+>tmpfs          /run         tmpfs    defaults            0     0
+>devtmpfs       /dev         devtmpfs mode=0755,nosuid    0     0
+>EOF
+```
+
+### Time to compile the Kernel !
+
+```
+cd /sources/
+tar -xvf linux-5.5.3.tar.gz
+cd linux-5.5.3
+make mrproper
+make menuconfig
+```
+
+A menu should appear. Go into:
+General setup -> Local version - append to kernel release
+You can now type the name of your kernel.
+I chose "Linux kernel-5.5.3-lubenard".
+Save, then exit.
+
+```
+make
+make modules_install
+```
+
+We mount /boot to set it as boot partition
+
+```
+cp -iv arch/x86/boot/bzImage /boot/vmlinuz-5.5.3-lubenard
+cp -iv System.map /boot/System.map-5.5.3
+cp -iv .config /boot/config-5.5.3
+install -d /usr/share/doc/linux-5.5.3
+cp -r Documentation/* /usr/share/doc/linux-5.5.3
+```
+
+```
+install -v -m755 -d /etc/modprobe.d
+cat > /etc/modprobe.d/usb.conf << "EOF"
+# Begin /etc/modprobe.d/usb.conf
+
+install ohci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i ohci_hcd ; true
+install uhci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i uhci_hcd ; true
+
+# End /etc/modprobe.d/usb.conf
+EOF
+```
+
+### Setting grub up !
+
+```
+grub-install /dev/sda
+cat > /boot/grub/grub.cfg << "EOF"
+# Begin /boot/grub/grub.cfg
+set default=0
+set timeout=5
+
+insmod ext2
+set root=(hd0,7)
+
+menuentry "GNU/Linux, Linux 5.5.3-lubenard" {
+        linux   /boot/vmlinuz-5.5.3-lubenard root=/dev/sda7 ro
+}
+EOF
+```
+
+### Final reboot
