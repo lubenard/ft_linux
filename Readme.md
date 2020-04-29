@@ -786,6 +786,21 @@ Inputrc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter07/inputrc
 
 Shells [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter07/etcshells.html)
 
+### Configure the swap file
+
+We configure the swap partition (in my case, sda5)
+
+```
+mkswap /dev/sda5
+swapon /dev/sda5
+```
+
+to see if the swap is active, type:
+
+```
+swapon
+```
+
 ## It's alive !
 
 ### Create the /etc/fstab file
@@ -802,6 +817,7 @@ cat > /etc/fstab << "EOF"
 >devpts         /dev/pts     devpts   gid=5,mode=620      0     0
 >tmpfs          /run         tmpfs    defaults            0     0
 >devtmpfs       /dev         devtmpfs mode=0755,nosuid    0     0
+
 >EOF
 ```
 
@@ -829,6 +845,13 @@ make modules_install
 We mount /boot to set it as boot partition
 
 ```
+mkdir -p /boot
+mount /dev/sda6 /boot
+```
+
+And copy files inside of it
+
+```
 cp -iv arch/x86/boot/bzImage /boot/vmlinuz-5.5.3-lubenard
 cp -iv System.map /boot/System.map-5.5.3
 cp -iv .config /boot/config-5.5.3
@@ -850,6 +873,8 @@ EOF
 
 ### Setting grub up !
 
+We are creating two entry to be able to boot from our lfs or our debian
+
 ```
 grub-install /dev/sda
 cat > /boot/grub/grub.cfg << "EOF"
@@ -858,12 +883,31 @@ set default=0
 set timeout=5
 
 insmod ext2
-set root=(hd0,7)
 
 menuentry "GNU/Linux, Linux 5.5.3-lubenard" {
-        linux   /boot/vmlinuz-5.5.3-lubenard root=/dev/sda7 ro
+        set root=(hd0,6)
+        linux   /vmlinuz-5.5.3-lubenard root=/dev/sda7 ro
+}
+menuentry "Good old debian" {
+        set root=(hd0,1)
+        linux   /vmlinuz root=/dev/sda1 ro
+        initrd /initrd.img
 }
 EOF
 ```
 
 ### Final reboot
+
+```
+logout
+umount -v $LFS/dev/pts
+umount -v $LFS/dev
+umount -v $LFS/run
+umount -v $LFS/proc
+umount -v $LFS/sys
+umount -v $LFS
+umount -v $LFS/usr
+umount -v $LFS/home
+umount -v $LFS
+shutdown -r now
+```
