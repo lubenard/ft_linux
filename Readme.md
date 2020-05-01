@@ -95,6 +95,7 @@ Download it all:
 ```
 wget --input-file=wget-list --continue --directory-prefix=$root/sources
 wget https://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz
+wget http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.2p1.tar.gz
 ```
 
 Then verify the integrity of the packages:
@@ -597,7 +598,11 @@ Sysvinit [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/sysvin
 
 Eudev [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/eudev.html)
 
-Wget [Here](http://www.linuxfromscratch.org/blfs/view/svn/basicnet/wget.html)
+Wget [Here](http://www.linuxfromscratch.org/blfs/view/stable/basicnet/wget.html)
+
+Ssh [Here](http://www.linuxfromscratch.org/blfs/view/stable/postlfs/openssh.html)
+
+Personally, I have chosen to be able to log at root, at least at the beginning
 
 ## Everything is ready ? No sir !
 
@@ -920,3 +925,18 @@ umount -v $LFS/home
 umount -v $LFS
 shutdown -r now
 ```
+
+You now have a working command line Linux !
+
+## And after ?
+
+What ? You want more than just a CLI ? This is for you !
+
+First of all, we export the PS1 environment variable, in order to have a more visible prompt:
+
+```
+echo 'export PS1="\u@\h:\w \[$(tput sgr0)\]"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+If you want to customize your prompt, you can use [this](http://bashrcgenerator.com/) website
