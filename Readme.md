@@ -928,6 +928,15 @@ shutdown -r now
 
 You now have a working command line Linux !
 
+If you want to free some space, you can remove all sources folders by doing
+
+```
+cd /sources
+rm -rf */
+```
+
+This will delete the folders, but not the originals tar if you need them again
+
 ## And after ?
 
 What ? You want more than just a CLI ? This is for you !
@@ -940,3 +949,17 @@ source ~/.bashrc
 ```
 
 If you want to customize your prompt, you can use [this](http://bashrcgenerator.com/) website
+
+### I3 power ?
+
+We will now install i3. I3 is working with Xorg, so we need to install it first
+
+#### Installing Xorg
+
+To install Xorg, we need to fill it's dependencies, beginning with Cmake.
+
+Install Libuv first following [this](http://www.linuxfromscratch.org/blfs/view/stable/general/libuv.html) page,
+
+then [libarchive](http://www.linuxfromscratch.org/blfs/view/stable/general/libarchive.html) and [curl](http://www.linuxfromscratch.org/blfs/view/stable/basicnet/curl.html), and finally [Cmake](http://www.linuxfromscratch.org/blfs/view/stable/general/cmake.html)
+
+Then i proceed to install Xorg following the BLFS tutorial, availabale [here](http://www.linuxfromscratch.org/blfs/view/stable/x/xorg7.html)
