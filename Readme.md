@@ -963,3 +963,19 @@ Install Libuv first following [this](http://www.linuxfromscratch.org/blfs/view/s
 then [libarchive](http://www.linuxfromscratch.org/blfs/view/stable/general/libarchive.html) and [curl](http://www.linuxfromscratch.org/blfs/view/stable/basicnet/curl.html), and finally [Cmake](http://www.linuxfromscratch.org/blfs/view/stable/general/cmake.html)
 
 Then i proceed to install Xorg following the BLFS tutorial, availabale [here](http://www.linuxfromscratch.org/blfs/view/stable/x/xorg7.html)
+
+#### Problems with LLVm
+
+If you encounter problems during compilation of LLVM, and the error message is saying
+
+```
+g++: fatal error: Killed signal terminated program cc1plus
+```
+
+, type ```dmesg```
+
+If the last line begin with ```Out of memory```, just shutdown the virtual machine and increase the ram allowed.
+
+I've personally gone from 2gb to 5gb of ram.
+
+Then, relaunch the virtual machine and relaunch the compilation.
