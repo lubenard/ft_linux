@@ -950,9 +950,19 @@ source ~/.bashrc
 
 If you want to customize your prompt, you can use [this](http://bashrcgenerator.com/) website
 
-### I3 power ?
+Obviously, we want the bashrc to load when our shell starts up. To do this, we need to create a profile for each user associated to our shell.
 
-We will now install i3. I3 is working with Xorg, so we need to install it first
+For our user, we set up the minimal profile:
+
+```
+echo '[[ -f ~/.bashrc ]] && . ~/.bashrc' > ~/.bash_profile
+```
+
+This simple script means that if the .bashrc file exists, then bash has to load it
+
+### Kde power ?
+
+We will now install Kde. Kde is working with Xorg, so we need to install it first
 
 #### Installing Xorg
 
@@ -979,3 +989,33 @@ If the last line begin with ```Out of memory```, just shutdown the virtual machi
 I've personally gone from 2gb to 5gb of ram.
 
 Then, relaunch the virtual machine and relaunch the compilation.
+
+#### Test to check if evrything is working correctly
+
+When you're done installing all the packets, you can check if X server is launching correctly by typing:
+
+```
+startx /usr/bin/xclock
+```
+
+If, on your vm screen, a clock is displayed, it means that everything is working.
+
+You can then test with xterm, by doing:
+
+```
+startx /usr/bin/xterm
+```
+
+If you get a error message saying that xterm cannot get monospace font, install font from [this](http://www.linuxfromscratch.org/blfs/view/stable/x/TTF-and-OTF-fonts.html#dejavu-fonts) page.
+
+I personally chose FreeFont. To install it, type:
+
+```
+mkdir -pv /usr/share/fonts/default/TrueType
+tar -xvf freefont-ttf.tar.gz
+mv sdf/* /usr/share/fonts/default/TrueType/
+```
+
+You should normally be able to start xterm
+
+You can follow the guide to install kde [here](http://www.linuxfromscratch.org/blfs/view/stable/kde/kdeintro.html)
