@@ -432,6 +432,15 @@ chmod -v 600  /var/log/btmp
 
 ### Install packages
 
+If you are short in space during the installation of thoses packages, you can free some space by deleting the folder of packages you have already installed:
+
+(This will not clean the archives files)
+
+```
+cd /sources
+rm -rf $(ls -d */)
+```
+
 Linux API Headers [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/linux-headers.html)
 
 Man pages [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/man-pages.html)
@@ -941,14 +950,35 @@ This will delete the folders, but not the originals tar if you need them again
 
 What ? You want more than just a CLI ? This is for you !
 
-First of all, we export the PS1 environment variable, in order to have a more visible prompt:
+First of all, let's create a user that is not root:
+```
+useradd lubenard --create-home --shell /bin/bash
+passwd lubenard
+<Type new passd for user lubenard>
+```
+
+Since we do not want only root to be able to access the source folder, we can also let our user access it:
+```
+su root -c "chmod -R 777 /sources"
+```
+
+Then, we export the PS1 environment variable, in order to have a more visible prompt:
 
 ```
-echo 'export PS1="\u@\h:\w \[$(tput sgr0)\]"' >> ~/.bashrc
+echo 'export PS1="\u@\h:\w# \[$(tput sgr0)\]"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
 If you want to customize your prompt, you can use [this](http://bashrcgenerator.com/) website
+
+We can also add some useful aliases to our user's config:
+```
+alias l="ls -l"
+alias ll="ls -lha"
+alias ..="cd ../"
+alias ...="cd ../../"
+alias e="tar -xvf"
+```
 
 Obviously, we want the bashrc to load when our shell starts up. To do this, we need to create a profile for each user associated to our shell.
 
