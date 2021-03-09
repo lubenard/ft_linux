@@ -1,10 +1,14 @@
 # ft_linux
 A simple LFS...
 
+/!\ Be careful ! This lfs might have broken links due to lfs updating their tutorial.
+/!\ This LFS has been done with all links working !
+/!\ If some links are broken, that might be a good idea to compare with the website to avoid errors
+
 ## Prerequisites
 
-For this subject, i'll use a virtual machine (virtualbox) with 10 GB of space and bridged network (for ssh).
-I also allowed 2048 MB of ram and 2 CPU.
+For this subject, i'll use a virtual machine (virtualbox) with 32 GB of space and bridged network (for ssh).
+I also allowed 4096 MB of ram and 2 CPU.
 
 I decided to install debian as host OS.
 
@@ -16,10 +20,10 @@ This is the list of my partitions:
 
 - ext2 partition (100 mb) <- will be /boot
 - swap partition (1 gb)   <- will be swap file
-- ext4 partition (16.9 gb) <- root partition
-- ext4 partition (2 gb)   <- host os partition
+- ext4 partition (25 gb) <- root partition
+- ext4 partition (5 gb)   <- host os partition
 
-The total is 25gb
+The total is ~31gb
 
 ## Settings things up on the host
 
@@ -68,6 +72,7 @@ again /!\
 ```
 export boot="/mnt/boot"
 export root="/mnt/root"
+export LFS="/mnt/root"
 ```
 
 ## Downloading the sources
@@ -79,7 +84,6 @@ First, let's create the folder for centralizing the sources:
 ```
 mkdir $root/sources
 chmod -v a+wt $root/sources
-
 ```
 
 Then get the list of files to download
@@ -166,8 +170,8 @@ EOF
 We export MAKEFLAGS in order to multithread compilation, we also add it to .bashrc
 
 ```
-export MAKEFLAGS='-j 2'
-echo "export MAKEFLAGS='-2 '" >> ~/.bashrc
+export MAKEFLAGS='-j 8'
+echo "export MAKEFLAGS='-8 '" >> ~/.bashrc
 ```
 
 Finally, we reload bash_profile
@@ -186,63 +190,46 @@ cd $root/sources
 
 Binutils - Pass 1 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/binutils-pass1.html)
 
-Gcc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gcc-pass1.html)
+Gcc - Pass 1 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gcc-pass1.html)
 
 Linux Api Headers [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/linux-headers.html)
 
 Glibc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/glibc.html)
 
-Gcc - libstdc++ [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gcc-libstdc++.html)
+Gcc - libstdc++ - Pass 1 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gcc-libstdc++.html)
 
-Binutils - Pass 2 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/binutils-pass2.html)
 
-Gcc - Pass 2 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gcc-pass2.html)
+M4 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/m4.html)
 
-Tcl [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/tcl.html)
+Ncurses [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/ncurses.html)
 
-Expect [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/expect.html)
+Bash [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/bash.html)
 
-Dejagnu [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/dejagnu.html)
+Coreutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/coreutils.html)
 
-M4 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/m4.html)
+Diffutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/diffutils.html)
 
-Ncurses [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/ncurses.html)
+File [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/file.html)
 
-Bash [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/bash.html)
+Findutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/findutils.html)
 
-Bison [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/bison.html)
+Gawk [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gawk.html)
 
-Bzip2 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/bzip2.html)
+Grep [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/grep.html)
 
-Coreutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/coreutils.html)
+Gzip [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gzip.html)
 
-Diffutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/diffutils.html)
+Make [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/make.html)
 
-File [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/file.html)
+Patch [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/patch.html)
 
-Findutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/findutils.html)
+Sed [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/sed.html)
 
-Gawk [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gawk.html)
+Tar [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/tar.html)
 
-Grep [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/grep.html)
+Binutils - Pass 2 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/binutils-pass2.html)
 
-Gzip [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/gzip.html)
-
-Make [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/make.html)
-
-Patch [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/patch.html)
-
-Perl [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/perl.html)
-
-Python [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/Python.html)
-
-Sed [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/sed.html)
-
-Tar [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/tar.html)
-
-Texinfo [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/texinfo.html)
-
-Xz [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/xz.html)
+Gcc - Pass 2 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gcc-pass2.html)
 
 ### Changing right on tools folder
 
@@ -280,7 +267,6 @@ mount -vt sysfs sysfs $LFS/sys
 mount -vt tmpfs tmpfs $LFS/run
 ```
 
-
 ```
 if [ -h $LFS/dev/shm ]; then
   mkdir -pv $LFS/$(readlink $LFS/dev/shm)
@@ -299,6 +285,9 @@ chroot "$LFS" /tools/bin/env -i \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
     /tools/bin/bash --login +h
 ```
+
+If ```chroot``` is not found, check the PATH contains ```/usr/sbin```
+If ```chroot``` is not in this folder, you can check with ```whereis chroot```
 
 ### Let's simplify that
 
@@ -441,43 +430,55 @@ cd /sources
 rm -rf $(ls -d */)
 ```
 
-Linux API Headers [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/linux-headers.html)
+Man pages [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/man-pages.html)
 
-Man pages [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/man-pages.html)
+Linux API Headers [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter05/linux-headers.html)
 
-Glibc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/glibc.html)
+Iana-etc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/iana-etc.html)
 
-Adjusting the toolchain [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/adjusting.html)
+Glibc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/glibc.html)
 
-Zlib [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/zlib.html)
+Zlib [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/zlib.html)
 
-Bzip2 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/bzip2.html)
+Bzip2 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/bzip2.html)
 
-XZ [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/xz.html)
+Xz [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/xz.html)
 
-File [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/file.html)
+Zstd [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/zstd.html)
 
-Readline [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/readline.html)
+File [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/file.html)
 
-M4 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/m4.html)
+Readline [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/readline.html)
 
-Bc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/bc.html)
+M4 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/m4.html)
 
-Binutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/binutils.html)
+Bc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/bc.html)
 
-Gmp [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gmp.html)
+Flex [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/flex.html)
 
-Mpfr [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/mpfr.html)
+Tcl [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/tcl.html)
 
-Mpc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/mpc.html)
+Expect [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/expect.html)
 
-Attr [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/attr.html)
+DejaGNU [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/dejagnu.html)
 
-Acl [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/acl.html)
+Binutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/binutils.html)
 
-Shadow [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/shadow.html)
+Gmp [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/gmp.html)
 
-Gcc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gcc.html)
+Mpfr [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/mpfr.html)
+
+Mpc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/mpc.html)
+
+Attr [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/attr.html)
+
+Acl [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/acl.html)
+
+Libcap [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/libcap.html)
+
+Shadow [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/shadow.html)
+
+Gcc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/gcc.html)
 
 If during this test:
 
@@ -493,7 +494,7 @@ your output is different than:
 [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
 ```
 
-launch 
+try launching and see if it works 
 
 ```
 gcc -dumpspecs | sed -e 's@/tools@@g' > `dirname $(gcc --print-libgcc-file-name)`/specs
@@ -501,111 +502,103 @@ gcc -dumpspecs | sed -e 's@/tools@@g' > `dirname $(gcc --print-libgcc-file-name)
 
 and redo the test, it should now works
 
-Pkg-config [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/pkg-config.html)
+Pkg-config [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/pkg-config.html)
 
-Ncurses [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/ncurses.html)
+Ncurses [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/ncurses.html)
 
-Libcap [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/libcap.html)
+Sed [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/sed.html)
 
-Sed [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/sed.html)
+Psmisc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/psmisc.html)
 
-Psmisc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/psmisc.html)
+Gettext [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/gettext.html)
 
-Iana-etc [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/iana-etc.html)
+Bison [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/bison.html)
 
-Bison [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/bison.html)
+Grep [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/grep.html)
 
-Flex [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/flex.html)
+Libtool [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/libtool.html)
 
-Grep [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/grep.html)
+Gdbm [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/gdbm.html)
 
-Bash [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/bash.html)
+Gperf [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/gperf.html)
 
-Libtool [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/libtool.html)
+Expat [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/expat.html)
 
-Gdbm [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gdbm.html)
+Inetutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/inetutils.html)
 
-Gperf [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gperf.html)
+Perl [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/perl.html)
 
-Expat [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/expat.html)
+Xml::Parser [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/xml-parser.html)
 
-Inetutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/inetutils.html)
+Intltool [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/intltool.html)
 
-Perl [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/perl.html)
+Autoconf [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/autoconf.html)
 
-Xml-parser [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/xml-parser.html)
+Automake [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/automake.html)
 
-Intltool [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/intltool.html)
+Kmod [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/kmod.html)
 
-Autoconf [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/autoconf.html)
+Libelf from ElfUtils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/libelf.html)
 
-Automake [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/automake.html)
+Libffi [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/libffi.html)
 
-Kmod [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/kmod.html)
+OpenSSL [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/openssl.html)
 
-Gettext [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gettext.html)
+Python [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/Python.html)
 
-Libelf [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/libelf.html)
+Ninja [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/ninja.html)
 
-Libffi [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/libffi.html)
+Meson [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/meson.html)
 
-OpenSSL [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/openssl.html)
+Coreutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/coreutils.html)
 
-Python [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/Python.html)
+Check [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/check.html)
 
-Ninja [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/ninja.html)
+Diffutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/diffutils.html)
 
-Meson [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/meson.html)
+Gawk [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/gawk.html)
 
-Coreutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/coreutils.html)
+Findutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/findutils.html)
 
-Check [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/check.html)
+Groff [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/groff.html)
 
-Diffutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/diffutils.html)
+Grub [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/grub.html)
 
-Gawk [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gawk.html)
+Less [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/less.html)
 
-Findutils [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/findutils.html)
+Gzip [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/gzip.html)
 
-Groff [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/groff.html)
+Iproute2 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/iproute2.html)
 
-Grub [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/grub.html)
+Kbd [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/kbd.html)
 
-Less [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/less.html)
+Libpipeline [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/libpipeline.html)
 
-Gzip [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/gzip.html)
+Make [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/make.html)
 
-Zstd [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/zstd.html)
+Patch [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/patch.html)
 
-Iproute2 [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/iproute2.html)
+Man-db [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/man-db.html)
 
-Kbd [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/kbd.html)
+Tar [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/tar.html)
 
-Libpipeline [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/libpipeline.html)
+Texinfo [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/texinfo.html)
 
-Make [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/make.html)
+Vim [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/vim.html)
 
-Patch [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/patch.html)
+Eudev [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/eudev.html)
 
-Man-db [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/man-db.html)
+Procps-ng [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/procps-ng.html)
 
-Tar [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/tar.html)
+Util-linux [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/util-linux.html)
 
-Texinfo [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/texinfo.html)
+E2fsprogs [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/e2fsprogs.html)
 
-Vim [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/vim.html)
+Sysklogd [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/sysklogd.html)
 
-Procps-ng [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/procps-ng.html)
+Sysvinit [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter08/sysvinit.html)
 
-Util-linux [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/util-linux.html)
-
-E2fsprogs [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/e2fsprogs.html)
-
-Sysklogd [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/sysklogd.html)
-
-Sysvinit [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/sysvinit.html)
-
-Eudev [Here](http://www.linuxfromscratch.org/lfs/view/stable/chapter06/eudev.html)
+Personnally, i like to install thoses packages in my lfs (even if they come from BLFS)
 
 Wget [Here](http://www.linuxfromscratch.org/blfs/view/stable/basicnet/wget.html)
 
@@ -666,13 +659,13 @@ sed -i -e 's/"write_cd_rules"/"write_cd_rules mode"/' \
 udevadm info -a -p /sys/class/video4linux/video0
 
 cat > /etc/udev/rules.d/83-duplicate_devs.rules << "EOF"
-># Persistent symlinks for webcam and tuner
->KERNEL=="video*", ATTRS{idProduct}=="1910", ATTRS{idVendor}=="0d81", \
+# Persistent symlinks for webcam and tuner
+KERNEL=="video*", ATTRS{idProduct}=="1910", ATTRS{idVendor}=="0d81", \
     SYMLINK+="webcam"
->KERNEL=="video*", ATTRS{device}=="0x036f", ATTRS{vendor}=="0x109e", \
+KERNEL=="video*", ATTRS{device}=="0x036f", ATTRS{vendor}=="0x109e", \
     SYMLINK+="tvtuner"
->
->EOF
+
+EOF
 ```
 
 ### Network Configuration
@@ -684,28 +677,28 @@ with a static ip:
 ```
 cd /etc/sysconfig/
 cat > ifconfig.enp0s3 << "EOF"
->ONBOOT=yes
->IFACE=enp0s3
->SERVICE=ipv4-static
->IP=192.168.1.2
->GATEWAY=192.168.1.1
->PREFIX=24
->BROADCAST=192.168.1.255
->EOF
+ONBOOT=yes
+IFACE=enp0s3
+SERVICE=ipv4-static
+IP=192.168.1.2
+GATEWAY=192.168.1.1
+PREFIX=24
+BROADCAST=192.168.1.255
+EOF
 ```
 
 and the resolv.conf file:
 
 ```
 cat > /etc/resolv.conf << "EOF"
-># Begin /etc/resolv.conf
->
->domain <Your Domain Name>
->nameserver 8.8.8.
->nameserver 1.1.1.1
->
-># End /etc/resolv.conf
->EOF
+# Begin /etc/resolv.conf
+
+domain <Your Domain Name>
+nameserver 8.8.8.
+nameserver 1.1.1.1
+
+# End /etc/resolv.conf
+EOF
 ```
 
 Customizing hostname and hosts file
@@ -713,50 +706,50 @@ Customizing hostname and hosts file
 ```
 echo "lfs-lubenard" > /etc/hostname
 cat > /etc/hosts << "EOF"
->127.0.0.1 localhost lfs-lubenard 
->EOF
+127.0.0.1 localhost lfs-lubenard 
+EOF
 ```
 
 ### Configuring Sysvinit
 
 ```
 cat > /etc/inittab << "EOF"
->id:3:initdefault:
->
->si::sysinit:/etc/rc.d/init.d/rc S
->
->l0:0:wait:/etc/rc.d/init.d/rc 0
->l1:S1:wait:/etc/rc.d/init.d/rc 1
->l2:2:wait:/etc/rc.d/init.d/rc 2
->l3:3:wait:/etc/rc.d/init.d/rc 3
->l4:4:wait:/etc/rc.d/init.d/rc 4
->l5:5:wait:/etc/rc.d/init.d/rc 5
->l6:6:wait:/etc/rc.d/init.d/rc 6
->
->ca:12345:ctrlaltdel:/sbin/shutdown -t1 -a -r now
->
->su:S016:once:/sbin/sulogin
->
->1:2345:respawn:/sbin/agetty --noclear tty1 9600
->2:2345:respawn:/sbin/agetty tty2 9600
->3:2345:respawn:/sbin/agetty tty3 9600
->4:2345:respawn:/sbin/agetty tty4 9600
->5:2345:respawn:/sbin/agetty tty5 9600
->6:2345:respawn:/sbin/agetty tty6 9600
->
->EOF
+id:3:initdefault:
+
+si::sysinit:/etc/rc.d/init.d/rc S
+
+l0:0:wait:/etc/rc.d/init.d/rc 0
+l1:S1:wait:/etc/rc.d/init.d/rc 1
+l2:2:wait:/etc/rc.d/init.d/rc 2
+l3:3:wait:/etc/rc.d/init.d/rc 3
+l4:4:wait:/etc/rc.d/init.d/rc 4
+l5:5:wait:/etc/rc.d/init.d/rc 5
+l6:6:wait:/etc/rc.d/init.d/rc 6
+
+ca:12345:ctrlaltdel:/sbin/shutdown -t1 -a -r now
+
+su:S016:once:/sbin/sulogin
+
+1:2345:respawn:/sbin/agetty --noclear tty1 9600
+2:2345:respawn:/sbin/agetty tty2 9600
+3:2345:respawn:/sbin/agetty tty3 9600
+4:2345:respawn:/sbin/agetty tty4 9600
+5:2345:respawn:/sbin/agetty tty5 9600
+6:2345:respawn:/sbin/agetty tty6 9600
+
+EOF
 ```
 
 ### Configuring the system clock
 
 ```
 cat > /etc/sysconfig/clock << "EOF"
->UTC=1
->
-># Set this to any options you might need to give to hwclock,
-># such as machine hardware clock type for Alphas.
->CLOCKPARAMS=
->EOF
+UTC=1
+
+# Set this to any options you might need to give to hwclock,
+# such as machine hardware clock type for Alphas.
+CLOCKPARAMS=
+EOF
 ```
 
 ### Configuring keyboard
@@ -828,18 +821,18 @@ swapon
 
 ```
 cat > /etc/fstab << "EOF"
-># file system  mount-point  type     options             dump  fsck
->#                                                              order
->
->/dev/sda7     /            ext4    defaults            1     1
->/dev/sda5     swap         swap     pri=1               0     0
->proc           /proc        proc     nosuid,noexec,nodev 0     0
->sysfs          /sys         sysfs    nosuid,noexec,nodev 0     0
->devpts         /dev/pts     devpts   gid=5,mode=620      0     0
->tmpfs          /run         tmpfs    defaults            0     0
->devtmpfs       /dev         devtmpfs mode=0755,nosuid    0     0
+# file system  mount-point  type     options             dump  fsck
+#                                                              order
 
->EOF
+/dev/sda7     /            ext4    defaults            1     1
+/dev/sda5     swap         swap     pri=1               0     0
+proc           /proc        proc     nosuid,noexec,nodev 0     0
+sysfs          /sys         sysfs    nosuid,noexec,nodev 0     0
+devpts         /dev/pts     devpts   gid=5,mode=620      0     0
+tmpfs          /run         tmpfs    defaults            0     0
+devtmpfs       /dev         devtmpfs mode=0755,nosuid    0     0
+
+EOF
 ```
 
 ### Time to compile the Kernel !
@@ -855,7 +848,7 @@ make menuconfig
 A menu should appear. Go into:
 General setup -> Local version - append to kernel release
 You can now type the name of your kernel.
-I chose "Linux kernel-5.5.3-lubenard".
+I chose "Linux kernel-5.10.17-lubenard".
 Save, then exit.
 
 ```
@@ -873,11 +866,11 @@ mount /dev/sda6 /boot
 And copy files inside of it
 
 ```
-cp -iv arch/x86/boot/bzImage /boot/vmlinuz-5.5.3-lubenard
-cp -iv System.map /boot/System.map-5.5.3
-cp -iv .config /boot/config-5.5.3
-install -d /usr/share/doc/linux-5.5.3
-cp -r Documentation/* /usr/share/doc/linux-5.5.3
+cp -iv arch/x86/boot/bzImage /boot/vmlinuz-5.10.17-lubenard
+cp -iv System.map /boot/System.map-5.10.17
+cp -iv .config /boot/config-5.10.17
+install -d /usr/share/doc/linux-5.10.17
+cp -r Documentation/* /usr/share/doc/linux-5.10.17
 ```
 
 ```
