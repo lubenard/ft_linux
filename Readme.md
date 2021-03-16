@@ -1047,4 +1047,8 @@ I choose to install the following packages:
  - git [here](http://www.linuxfromscratch.org/blfs/view/stable/general/git.html)
  - nmap [here](http://www.linuxfromscratch.org/blfs/view/stable/basicnet/nmap.html)
  - terminator [here](https://github.com/gnome-terminator/terminator)(If you are having trouble with org.gnome.desktop.interface, try (re)installing [this](https://download.gnome.org/sources/gsettings-desktop-schemas/3.38/gsettings-desktop-schemas-3.38.0.tar.xz))
- - Firefox
+ - Firefox [here](http://www.linuxfromscratch.org/blfs/view/stable/xsoft/firefox.html)
+ - xarchiver [here](http://www.linuxfromscratch.org/blfs/view/stable/xsoft/xarchiver.html)
+ - sudo [here](http://www.linuxfromscratch.org/blfs/view/stable/postlfs/sudo.html)
+
+For sudo, i decided to create a sudo group, give it all rights (with visudo), and adding my normal account to the sudo group.
