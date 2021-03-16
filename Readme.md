@@ -983,9 +983,9 @@ echo '[[ -f ~/.bashrc ]] && . ~/.bashrc' > ~/.bash_profile
 
 This simple script means that if the .bashrc file exists, then bash has to load it
 
-### Kde power ?
+### Lxde power ?
 
-We will now install Kde. Kde is working with Xorg, so we need to install it first
+We will now install Lxde. Lxde is working with Xorg, so we need to install it first
 
 #### Installing Xorg
 
@@ -1041,4 +1041,10 @@ mv sdf/* /usr/share/fonts/default/TrueType/
 
 You should normally be able to start xterm
 
-You can follow the guide to install kde [here](http://www.linuxfromscratch.org/blfs/view/stable/kde/kdeintro.html)
+You can follow the guide to install Lxde [here](http://www.linuxfromscratch.org/blfs/view/stable/lxde/lxde.html)
+
+I choose to install the following packages:
+ - git [here](http://www.linuxfromscratch.org/blfs/view/stable/general/git.html)
+ - nmap [here](http://www.linuxfromscratch.org/blfs/view/stable/basicnet/nmap.html)
+ - terminator [here](https://github.com/gnome-terminator/terminator)(If you are having trouble with org.gnome.desktop.interface, try (re)installing [this](https://download.gnome.org/sources/gsettings-desktop-schemas/3.38/gsettings-desktop-schemas-3.38.0.tar.xz))
+ - Firefox
