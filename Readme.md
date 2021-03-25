@@ -1050,5 +1050,7 @@ I choose to install the following packages:
  - Firefox [here](http://www.linuxfromscratch.org/blfs/view/stable/xsoft/firefox.html)
  - xarchiver [here](http://www.linuxfromscratch.org/blfs/view/stable/xsoft/xarchiver.html)
  - sudo [here](http://www.linuxfromscratch.org/blfs/view/stable/postlfs/sudo.html)
+ - libreoffice [here](http://www.linuxfromscratch.org/blfs/view/stable/xsoft/libreoffice.html)
+ - baobab [here](http://www.linuxfromscratch.org/blfs/view/stable/gnome/baobab.html)
 
 For sudo, i decided to create a sudo group, give it all rights (with visudo), and adding my normal account to the sudo group.
