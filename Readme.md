@@ -1,10 +1,14 @@
 # ft_linux
 A simple LFS...
 
+[Subject](ft_linux.en.pdf)
+
 ![ft_linux](https://user-images.githubusercontent.com/42534397/113270889-3be01880-92da-11eb-9f8d-e845e7f88b07.png)
 
 /!\ Be careful ! This lfs might have broken links due to lfs updating their tutorial.
+
 /!\ This LFS has been done with all links working !
+
 /!\ If some links are broken, that might be a good idea to compare with the website to avoid errors
 
 ## Prerequisites
